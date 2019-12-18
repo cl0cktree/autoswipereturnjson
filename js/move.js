@@ -46,9 +46,11 @@ $(function(){
 				if (event.type=='mouseover')
 				{
 					stop_s();
+					stop_bar();
 				}else if (event.type=='mouseout')
 				{
 					start_s();
+					startbar();
 				}
 				else if (event.type='click')
 				{
@@ -81,9 +83,11 @@ $(function(){
 				if (event.type=='mouseover')
 				{
 					stop_s();
+					stop_bar();
 				}else if (event.type=='mouseout')
 				{
 					start_s();
+					startbar();
 				}
 
 				else if (event.type='click')
@@ -157,6 +161,7 @@ $(function(){
 					ymove=event.originalEvent.changedTouches[0].pageY;
 
 					stop_s();
+					stop_bar();
 					var tvalue = tstart-tmove;
 					var yvalue = ystart-ymove;
 
@@ -206,6 +211,7 @@ $(function(){
 
 					}
 					start_s();
+					startbar();
 				}
 
 				else if (event.type=='touchcancle')
@@ -215,6 +221,7 @@ $(function(){
 					// tend=event.originalEvent.touches[0].pageX;
 
 					stop_s();
+					stop_bar();
 					var tvalue = tstart-tmove;
 					var yvalue = ystart-ymove;
 
@@ -263,6 +270,7 @@ $(function(){
 						}
 					}
 					start_s();
+					startbar();
 				}
 				else if (event.type=='click')
 				{
@@ -290,10 +298,12 @@ $(function(){
 				else if (event.type=='mouseover')
 				{
 					stop_s();
+					stop_bar();
 				}
 				else if (event.type=='mouseleave')
 				{
 					start_s();
+					startbar();
 				}
 				return false;
 			});
@@ -362,9 +372,11 @@ $(function(){
 				if (event.type=='mouseover')
 				{
 					stop_s();
+					stop_bar();
 				}else if (event.type=='mouseleave')
 				{
 					start_s();
+					startbar();
 				}
 			});
 
@@ -385,12 +397,20 @@ $(function(){
 			};
 
 			var autospeed=2000;
+			function startbar(){
+				$('.slide-wrap').append('<span class="timebar" style="display:inline-block;position:absolute;bottom:0px;left:0;width:0;height:20px;background:rgba(0,0,0,0.7);z-index:1"></span>')
+				$('.timebar').stop().animate({'width':'100%'},autospeed-200);
+				bar = setInterval(function(){
+						$('.timebar').remove();
+						$('.slide-wrap').append('<span class="timebar" style="display:inline-block;position:absolute;bottom:0px;left:0;width:0;height:20px;background:rgba(0,0,0,0.7);z-index:1"></span>')
+						$('.timebar').stop().animate({'width':'100%'},autospeed-200);
+				},autospeed);
+			};
 			function start_s(){
 				interval = setInterval(function(){
 					msswipe = mswidth*100;
 					msminus = mswidth*-100+100;
 					var m;
-
 					if (move==msminus)
 					{
 						move=0;
@@ -427,8 +447,13 @@ $(function(){
 				},autospeed)
 			}
 			start_s();
+			startbar();
 			function stop_s(){
 				clearInterval(interval);
+			}
+			function stop_bar(){
+				$('.timebar').remove();
+				clearInterval(bar);
 			}
 			return false;
 		});
