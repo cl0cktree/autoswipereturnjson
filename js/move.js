@@ -1,7 +1,6 @@
 $(function(){
-	var mswidth
-	var reload_num = 1;
-	if($('body').find('.slide-wrap')&&reload_num>0)
+	var mswidth;
+	if($('body').find('.slide-wrap'))
 		{
 		$('.slide-wrap').append('<ul id="slide-container" class="slide-container"></ul><ul id="indicator" class="indicator"></ul><div id="prev-btn" class="con-btn"></div><div id="next-btn" class="con-btn"></div>');
 		var slideNum=0;
@@ -464,8 +463,5 @@ $(function(){
 			});
 			return false;
 		});
-	}else{
-		reload_num=0;
-		history.go(0);
 	};
 });
