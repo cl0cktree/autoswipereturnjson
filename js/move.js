@@ -27,6 +27,8 @@ $(function(){
 			var bi=0;
 			var msheight
 
+			msheight = $('.slide img').height();
+			$('.slide-wrap').css({'height':msheight});
 			$(document).ready(function(){
 				msheight = $('.slide img').height();
 				$('.slide-wrap').css({'height':msheight});
