@@ -466,6 +466,6 @@ $(function(){
 		});
 	}else{
 		reload_num=0;
-		location.reload();
+		history.go(0);
 	};
 });
