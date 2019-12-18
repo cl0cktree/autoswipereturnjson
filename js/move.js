@@ -1,6 +1,7 @@
 $(function(){
 	var mswidth
-	if($('body').find('.slide-wrap'))
+	var reload_num = 1;
+	if($('body').find('.slide-wrap')&&reload_num>0)
 		{
 		$('.slide-wrap').append('<ul id="slide-container" class="slide-container"></ul><ul id="indicator" class="indicator"></ul><div id="prev-btn" class="con-btn"></div><div id="next-btn" class="con-btn"></div>');
 		var slideNum=0;
@@ -10,7 +11,6 @@ $(function(){
 				slideNum++;
 				$('.slide-container').append('<li class="slide" id="slide'+slideNum+'"><img src='+item.img_url+' alt=""></li>');
 				$('.indicator').append('<li id="bulet'+slideNum+'" class="bulet">●</li>');
-				
 				mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
 				for (var i=0;i<mswidth;i++)/*.slide의 배열이 늘어나면 알아서 아이디와 레프트값 연산 및 .indicator의 btn도 배열 갯수만큼 append*/
 				{
@@ -464,5 +464,8 @@ $(function(){
 			});
 			return false;
 		});
+	}else{
+		reload_num=0;
+		location.reload();
 	};
 });
