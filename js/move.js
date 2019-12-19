@@ -416,13 +416,16 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
-				if($('.slide-wrap').height()==0){
+				msheight = $('.slide img').height();
+				console.log(msheight);
+				if(msheight==0){
 					$(document).ready(function(){
 						msheight = $('.slide img').height();
 						$('.slide-wrap').css({'height':msheight});
 						console.log(msheight);
 					});
 				}
+				
 				interval = setInterval(function(){
 					if($('.slide-wrap').height()==0){
 						$(document).ready(function(){
