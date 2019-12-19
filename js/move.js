@@ -10,7 +10,7 @@ $(function(){
 			$.each(data, function(I, item){
 				slideNum++;
 				$('.slide-container').append('<div class="slide" id="slide'+slideNum+'"><img src='+item.img_url+' alt=""></div>');
-				window.onload=function(){
+				function lazy_0(){
 					$(document).ready(function(){
 							msheight = $('.slide').children('img').height();
 							$('.slide-wrap').css({'height':msheight});
@@ -18,6 +18,7 @@ $(function(){
 						}
 					);
 				}
+				setTimeout(lazy_0,0);
 				$('.indicator').append('<li id="bulet'+slideNum+'" class="bulet">●</li>');
 				mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
 				for (var i=0;i<mswidth;i++)/*.slide의 배열이 늘어나면 알아서 아이디와 레프트값 연산 및 .indicator의 btn도 배열 갯수만큼 append*/
