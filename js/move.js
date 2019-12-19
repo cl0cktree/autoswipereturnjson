@@ -13,13 +13,13 @@ $(function(){
 				$('.indicator').append('<li id="bulet'+slideNum+'" class="bulet">●</li>');
 				msheight = $('.slide img').height();
 				console.log(msheight+' t0');
-				if(msheight==0){
-					//$(document).ready(function(){
-						msheight = $('.slide img').height();
-						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight+' t1');
-					//});
-				};
+				// if(msheight==0){
+				// 	$(document).ready(function(){
+				// 		msheight = $('.slide img').height();
+				// 		$('.slide-wrap').css({'height':msheight});
+				// 		console.log(msheight+' t1');
+				// 	});
+				// };
 				mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
 				for (var i=0;i<mswidth;i++)/*.slide의 배열이 늘어나면 알아서 아이디와 레프트값 연산 및 .indicator의 btn도 배열 갯수만큼 append*/
 				{
@@ -411,11 +411,11 @@ $(function(){
 				msheight = $('.slide img').height();
 				console.log(msheight+' 1');
 				if($('.slide-wrap').height()==0){
-					$(document).ready(function(){
+					//$(document).ready(function(){
 						msheight = $('.slide img').height();
 						$('.slide-wrap').css({'height':msheight});
 						console.log(msheight+' 2');
-					});
+					//});
 					$('.slide-wrap').css({'height':msheight});
 				}
 				$('.slide-wrap').append('<span class="timebar" style="display:inline-block;position:absolute;bottom:0px;left:0;width:0;height:20px;background:rgba(0,0,0,0.7);z-index:1"></span>')
@@ -427,20 +427,20 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
-				msheight = $('.slide img').height();
+				//msheight = $('.slide img').height();
 				console.log(msheight);
-				if(msheight==0){
+				if($('.slide-wrap').height()==0){
 					$(document).ready(function(){
 						msheight = $('.slide img').height();
 						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight);
+						console.log(msheight+' test');
 					});
 				}
 				
 				interval = setInterval(function(){
 					if($('.slide-wrap').height()==0){
 						$(document).ready(function(){
-							msheight = $('.slide img').height();
+							//msheight = $('.slide img').height();
 							$('.slide-wrap').css({'height':msheight});
 							console.log(msheight);
 						});
