@@ -1,6 +1,7 @@
 $(function(){
 	var mswidth;
 	var msheight;
+	function lazyload(){
 	if($('body').find('.slide-wrap'))
 		{
 		$('.slide-wrap').append('<div id="slide-container" class="slide-container"></div><ul id="indicator" class="indicator"></ul><div id="prev-btn" class="con-btn"></div><div id="next-btn" class="con-btn"></div>');
@@ -486,5 +487,7 @@ $(function(){
 			console.log(msheight);
 		});
 	}
+	}
+	setTimeout(lazyload,1000);
 	return false;
 });
