@@ -402,9 +402,10 @@ $(function(){
 				if($('.slide-wrap').height()==0){
 					$(document).ready(function(){
 						msheight = $('.slide img').height();
-						$('.slide-wrap').css({'height':msheight});
+						// $('.slide-wrap').css({'height':msheight});
 						console.log(msheight);
 					});
+					$('.slide-wrap').css({'height':msheight});
 				}
 				$('.slide-wrap').append('<span class="timebar" style="display:inline-block;position:absolute;bottom:0px;left:0;width:0;height:20px;background:rgba(0,0,0,0.7);z-index:1"></span>')
 				$('.timebar').stop().animate({'width':'100%'},autospeed-200);
