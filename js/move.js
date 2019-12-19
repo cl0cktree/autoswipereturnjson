@@ -461,7 +461,7 @@ $(function(){
 				$('.timebar').remove();
 				clearInterval(bar);
 			}
-			if($('.slide-wrap').height==0){
+			if($('.slide-wrap').height()==0){
 				$(document).ready(function(){
 					msheight = $('.slide img').height();
 					$('.slide-wrap').css({'height':msheight});
