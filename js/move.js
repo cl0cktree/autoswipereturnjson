@@ -10,11 +10,11 @@ $(function(){
 			$.each(data, function(I, item){
 				slideNum++;
 				$('.slide-container').append('<div class="slide" id="slide'+slideNum+'"><img src='+item.img_url+' alt=""></div>');
-				if ($(window).scrollTop()>=0){
+				window.onload=function(){
 					$(document).ready(function(){
-						msheight = $('.slide').children('img').height();
-						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight)
+							msheight = $('.slide').children('img').height();
+							$('.slide-wrap').css({'height':msheight});
+							console.log(msheight+' --')
 						}
 					);
 				}
