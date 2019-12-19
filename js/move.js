@@ -395,7 +395,7 @@ $(function(){
 					$(document).ready(function(){
 							msheight = $('.slide').children('img').height();
 							$('.slide-wrap').css({'height':msheight});
-							console.log(msheight+' --')
+							// console.log(msheight+' --')
 						}
 					);
 				};
@@ -418,7 +418,7 @@ $(function(){
 						$(document).ready(function(){
 							msheight = $('.slide img').height();
 							$('.slide-wrap').css({'height':msheight});
-							console.log(msheight);
+							// console.log(msheight);
 						});
 					}
 					msswipe = mswidth*100;
@@ -470,16 +470,18 @@ $(function(){
 			}
 		});
 	};
+	//--이미지 로드와의 시간차로 height가 느리게 잡히는 것을 강제로 끌어내어 처음부터 height값 강제 적용.
 	function lazy_0(){
 		if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null){
 			$(document).ready(function(){
 					msheight = $('.slide').children('img').height();
 					$('.slide-wrap').css({'height':msheight});
-					console.log(msheight+' --')
+					//console.log(msheight+' --')
 				}
 			);
 		};
 	}
 	setInterval(lazy_0,-100);
+	//-----
 	return false;
 });
