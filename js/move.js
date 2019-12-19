@@ -408,12 +408,13 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
-				$(document).ready(function(){
-					msheight = $('.slide img').height();
-					$('.slide-wrap').css({'height':msheight});
-					console.log(msheight);
-				});
 				interval = setInterval(function(){
+					$(document).ready(function(){
+						msheight = $('.slide img').height();
+						$('.slide-wrap').css({'height':msheight});
+						console.log(msheight);
+					});
+					
 					msswipe = mswidth*100;
 					msminus = mswidth*-100+100;
 					var m;
