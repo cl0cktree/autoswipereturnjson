@@ -280,6 +280,10 @@ $(function(){
 						$('body').css({'background':'blue'})
 					}else if($(this).is('#slide6')==true){
 						$('body').css({'background':'purple'})
+					}else if($(this).is('#slide7')==true){
+						$('body').css({'background':'gray'})
+					}else if($(this).is('#slide8')==true){
+						$('body').css({'background':'black'})
 					}
 					// if (bi==0)
 					// {
