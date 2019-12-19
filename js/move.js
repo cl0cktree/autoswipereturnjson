@@ -18,6 +18,13 @@ $(function(){
 					$('#slide'+t).css({'left':i+'%'})
 					i=i/100;
 				};
+				if($('.slide-wrap').height()==0){
+					$(document).ready(function(){
+						msheight = $('.slide img').height();
+						$('.slide-wrap').css({'height':msheight});
+						console.log(msheight);
+					});
+				}
 			});
 
 			mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
@@ -408,12 +415,21 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
+				if($('.slide-wrap').height()==0){
+					$(document).ready(function(){
+						msheight = $('.slide img').height();
+						$('.slide-wrap').css({'height':msheight});
+						console.log(msheight);
+					});
+				}
 				interval = setInterval(function(){
-					// $(document).ready(function(){
-					// 	msheight = $('.slide img').height();
-					// 	$('.slide-wrap').css({'height':msheight});
-					// 	console.log(msheight);
-					// });
+					if($('.slide-wrap').height()==0){
+						$(document).ready(function(){
+							msheight = $('.slide img').height();
+							$('.slide-wrap').css({'height':msheight});
+							console.log(msheight);
+						});
+					}
 					msswipe = mswidth*100;
 					msminus = mswidth*-100+100;
 					var m;
@@ -461,13 +477,13 @@ $(function(){
 				$('.timebar').remove();
 				clearInterval(bar);
 			}
-			if($('.slide-wrap').height()==0){
-				$(document).ready(function(){
-					msheight = $('.slide img').height();
-					$('.slide-wrap').css({'height':msheight});
-					console.log(msheight);
-				});
-			}
+			// if($('.slide-wrap').height()==0){
+			// 	$(document).ready(function(){
+			// 		msheight = $('.slide img').height();
+			// 		$('.slide-wrap').css({'height':msheight});
+			// 		console.log(msheight);
+			// 	});
+			// }
 			return false;
 		});
 	};
