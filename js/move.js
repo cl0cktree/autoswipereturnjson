@@ -470,12 +470,16 @@ $(function(){
 			}
 		});
 	};
-	// if($('.slide-wrap').height()==0){
-	// 	$(document).ready(function(){
-	// 		msheight = $('.slide img').height();
-	// 		$('.slide-wrap').css({'height':msheight});
-	// 		console.log(msheight);
-	// 	});
-	// }
+	function lazy_0(){
+		if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null){
+			$(document).ready(function(){
+					msheight = $('.slide').children('img').height();
+					$('.slide-wrap').css({'height':msheight});
+					console.log(msheight+' --')
+				}
+			);
+		};
+	}
+	setInterval(lazy_0,-100);
 	return false;
 });
