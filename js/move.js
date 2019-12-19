@@ -10,15 +10,6 @@ $(function(){
 			$.each(data, function(I, item){
 				slideNum++;
 				$('.slide-container').append('<div class="slide" id="slide'+slideNum+'"><img src='+item.img_url+' alt=""></div>');
-				function lazy_0(){
-					$(document).ready(function(){
-							msheight = $('.slide').children('img').height();
-							$('.slide-wrap').css({'height':msheight});
-							console.log(msheight+' --')
-						}
-					);
-				}
-				setTimeout(lazy_0,0);
 				$('.indicator').append('<li id="bulet'+slideNum+'" class="bulet">●</li>');
 				mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
 				for (var i=0;i<mswidth;i++)/*.slide의 배열이 늘어나면 알아서 아이디와 레프트값 연산 및 .indicator의 btn도 배열 갯수만큼 append*/
@@ -399,15 +390,19 @@ $(function(){
 				$('#next-btn').css({'z-index':'-1'})
 			};
 
-			var autospeed=2000;
-			function startbar(){
+			function lazy_0(){
 				if($('.slide-wrap').height()==0){
 					$(document).ready(function(){
-						msheight = $('.slide img').height();
-						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight+' 2');
-					});
-				}
+							msheight = $('.slide').children('img').height();
+							$('.slide-wrap').css({'height':msheight});
+							console.log(msheight+' --')
+						}
+					);
+				};
+			}
+			var autospeed=2000;
+			function startbar(){
+				setTimeout(lazy_0,0);
 				$('.slide-wrap').append('<span class="timebar" style="display:inline-block;position:absolute;bottom:0px;left:0;width:0;height:20px;background:rgba(0,0,0,0.7);z-index:1"></span>')
 				$('.timebar').stop().animate({'width':'100%'},autospeed-200);
 				bar = setInterval(function(){
@@ -417,13 +412,7 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
-				if($('.slide-wrap').height()==0){
-					$(document).ready(function(){
-						msheight = $('.slide img').height();
-						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight+' test');
-					});
-				}
+				setTimeout(lazy_0,0);
 				interval = setInterval(function(){
 					if($('.slide-wrap').height()==0){
 						$(document).ready(function(){
