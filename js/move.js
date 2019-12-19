@@ -408,6 +408,11 @@ $(function(){
 				},autospeed);
 			};
 			function start_s(){
+				$(document).ready(function(){
+					msheight = $('.slide img').height();
+					$('.slide-wrap').css({'height':msheight});
+					console.log(msheight);
+				});
 				interval = setInterval(function(){
 					msswipe = mswidth*100;
 					msminus = mswidth*-100+100;
@@ -456,11 +461,11 @@ $(function(){
 				$('.timebar').remove();
 				clearInterval(bar);
 			}
-			$(document).ready(function(){
-				msheight = $('.slide img').height();
-				$('.slide-wrap').css({'height':msheight});
-				console.log(msheight);
-			});
+			// $(document).ready(function(){
+			// 	msheight = $('.slide img').height();
+			// 	$('.slide-wrap').css({'height':msheight});
+			// 	console.log(msheight);
+			// });
 			return false;
 		});
 	};
