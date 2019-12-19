@@ -17,14 +17,14 @@ $(function(){
 					i=i*100;
 					$('#slide'+t).css({'left':i+'%'})
 					i=i/100;
+					if($('.slide-wrap').height()==0){
+						$(document).ready(function(){
+							msheight = $('.slide img').height();
+							$('.slide-wrap').css({'height':msheight});
+							console.log(msheight);
+						});
+					}
 				};
-				if($('.slide-wrap').height()==0){
-					$(document).ready(function(){
-						msheight = $('.slide img').height();
-						$('.slide-wrap').css({'height':msheight});
-						console.log(msheight);
-					});
-				}
 			});
 
 			mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
