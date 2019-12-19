@@ -490,5 +490,5 @@ $(function(){
 			});
 		};
 	};
-	setTimeout(timeslide(),1000);
+	setTimeout(timeslide,500);
 });
