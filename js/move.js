@@ -480,12 +480,16 @@ $(function(){
 			$(document).ready(function(){
 					msheight = $('.slide').children('img').height();
 					$('.slide-wrap').css({'height':msheight});
-					//console.log(msheight+' --')
+					//console.log(msheight+' --');
 				}
 			);
+			//console.log('++');
 		};
 	}
-	setInterval(lazy_0,-100);
+	if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null){
+		setInterval(lazy_0,-100);
+		//console.log('==');
+	};
 	//-----
 	return false;
 });
