@@ -1,6 +1,7 @@
 $(function(){
 	var mswidth;
 	var msheight;
+	var wrapwidth;
 	if($('body').find('.slide-wrap'))
 		{
 		$('.slide-wrap').append('<div id="slide-container" class="slide-container"></div><ul id="indicator" class="indicator"></ul><div id="prev-btn" class="con-btn"></div><div id="next-btn" class="con-btn"></div>');
@@ -23,14 +24,13 @@ $(function(){
 
 			mswidth = $('.slide').each(Array).length;/*슬라이드 전체 배열의 갯수만큼의 숫자를 추출*/
 			s_width = $('.slide').width();
-			var wrapwidth = mswidth*100;
 			var move=0;
 			var bi=0;
 
 			$(window).resize(function(){
 				var msheight = $('.slide img').height();
 				var mswidth = $('.slide').each(Array).length;/*-슬라이드 전체 배열의 갯수만큼의 숫자를 추출-*/
-				var wrapwidth = mswidth*100;
+				wrapwidth = mswidth*100;
 				s_width = $('.slide').width();
 
 				$('.slide-wrap').css({'height':msheight});
